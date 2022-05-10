@@ -15,4 +15,4 @@ de_test =pd.read_csv('train.csv')
 # print(df_train.describe())
 
 # 欠損値の確認
-# df.isnull().sum()
+# print(df_train.isnull().sum())
