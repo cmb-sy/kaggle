@@ -3,6 +3,8 @@ from random import random
 from sklearn.ensemble import RandomForestClassifier as rfc
 import pandas as pd
 from prior_process import prior_process as pp
+import sys
+sys.path.append("library")
 
 def random_forest(train_data, test_data):
   # n_estimator : 決定木数の設定。大きい方が精度が良いが（多くの多数決が可能）時間とメモリとのトレードオフ関係,defalut=100
@@ -23,6 +25,7 @@ def random_forest(train_data, test_data):
   test_features = test_data[["Pclass", "Sex"]].values
   # 学習したモデルで予測
   predict = rc.predict(test_features)
+
 
   submit = pd.DataFrame({'PassengerId': df_test["PassengerId"], 'Survived': predict})
   submit.to_csv("submit.csv", header=True, index=False)
