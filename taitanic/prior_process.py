@@ -8,7 +8,7 @@ def prior_process(train_data, test_data):
   test_data.replace({'Sex': {'male': 0, 'female': 1}}, inplace=True)
 
   #欠損値があったコラムを削除
-  category_list = ['Name', 'Cabin', 'Ticket','Embarked']
+  category_list = ['Name', 'Cabin', 'Ticket','Embarked', "Age"]
   train_data.drop(category_list, axis=1, inplace=True)
   test_data.drop(category_list, axis=1, inplace=True)
   return train_data, test_data

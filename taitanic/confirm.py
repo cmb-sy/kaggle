@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 df_train = pd.read_csv("train.csv")
-de_test =pd.read_csv('train.csv')
+df_test =pd.read_csv('train.csv')
 
 #コラムの表示
 # print(df_train.columns)
@@ -16,3 +16,4 @@ de_test =pd.read_csv('train.csv')
 
 # 欠損値の確認
 # print(df_train.isnull().sum())
+print(df_test.isnull().sum())
