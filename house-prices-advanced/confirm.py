@@ -6,7 +6,10 @@ import matplotlib.pyplot as plt
 # index_colは
 def data_output():
 # 売却価格のヒストグラム
-# sns.histplot(df_train['SalePrice'])
+  tmp = sns.histplot(df_train['SalePrice'])
+  sfig = tmp.get_figure()
+  sfig.savefig('filename.png',  orientation="landscape")
+
 # plt.show()
 # 売却価格の概要をみてみる
 # print(df_train["SalePrice"].describe()
@@ -17,7 +20,8 @@ def data_output():
 
 # 欠損値の割合を見る
 # print(df_train.isnull().sum())
-  pd.set_option("display.max_columns", 100)
+  # plt.savefig("histgram")
+  # pd.set_option("display.max_columns", 100)
   file = open('date_frame_train.txt', 'w')
   file.write(str(df_train.head()))
   file.close
@@ -32,3 +36,4 @@ if __name__ == '__main__':
   df_train = pd.read_csv("train.csv")
   df_test =pd.read_csv("test.csv")
   data_output()
+  
