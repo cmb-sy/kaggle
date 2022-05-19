@@ -9,7 +9,6 @@ def visualizer(train, test, purpose_value):
   new_dir_path = 'data/temp/new-dir'
   os.mkdir(new_dir_path)
 
-
 #目的変数のヒストグラム
   purpose_value_hist = sns.histplot(train[purpose_value]) 
   purpose_value_hist.set_title("histgram of purpose value")
