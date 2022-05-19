@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 import os
 
 def visualizer(train, test, purpose_value):
-  new_dir_path = 'data/temp/new-dir'
-  os.mkdir(new_dir_path)
+  # new_dir_path = 'data/temp/new-dir'
+  # os.mkdir(new_dir_path)
 
 #目的変数のヒストグラム
   purpose_value_hist = sns.histplot(train[purpose_value]) 
