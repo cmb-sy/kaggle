@@ -34,7 +34,7 @@ if __name__ == '__main__':
   df_test =pd.read_csv("../test.csv")
   chg_s_list = ['MSSubClass','YrSold','MoSold']
   p_train, p_test = prior_process(df_train, df_test, chg_s_list)
-  visualizer("v_dir", p_train, p_test)
+  visualizer("v_dir", p_train, p_test, "SalePrice", chg_log=True)
 
 
 
