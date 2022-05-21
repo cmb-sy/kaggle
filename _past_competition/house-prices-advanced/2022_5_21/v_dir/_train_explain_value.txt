@@ -1,5 +1,0 @@
-< 説明変数の欠損割合 >
-Series([], dtype: int64)
-
-< 説明変数の欠損データのデータ型 >
-Series([], dtype: object)
