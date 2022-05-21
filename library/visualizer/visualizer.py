@@ -5,16 +5,21 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import os
 import shutil
+import numpy as np
 
-def visualizer(directory_path, train, test, purpose_value=None):
+def visualizer(directory_path, train, test, purpose_value=None, chg_log=False):
   directory_path = str(directory_path)
   if os.path.exists(directory_path):
     shutil.rmtree(directory_path)
     os.mkdir(directory_path)
 
   if purpose_value != None:
-    #目的変数のヒストグラム
-    purpose_value_hist = sns.histplot(train[purpose_value]) 
+    #目的変数のヒストグラ
+    if chg_log:
+      purpose_value_hist = sns.histplot(np.log(train[purpose_value]))
+    else:
+      purpose_value_hist = sns.histplot(train[purpose_value]) 
+
     purpose_value_hist.set_title("histgram of purpose value")
     tmp = purpose_value_hist.get_figure()
     tmp.savefig('v_dir/_purpose_calue_histgram.png',  orientation="landscape")
@@ -24,8 +29,12 @@ def visualizer(directory_path, train, test, purpose_value=None):
     file.write("< 目的変数の概要 >\n")
     file.write(str(train[purpose_value].describe()))
     file.write("\n\n尖度と歪度（どれくらい正規分布から離れているか）\n")
-    file.write(f"歪度: {round(train[purpose_value].skew(),4)}\n")
-    file.write(f"尖度: {round(train[purpose_value].kurt(),4)}")
+    if chg_log:
+      file.write(f"歪度: {round(np.log(train[purpose_value]).skew(),4)}\n")
+      file.write(f"尖度: {round(np.log(train[purpose_value]).kurt(),4)}")
+    else:
+      file.write(f"歪度: {round(train[purpose_value].skew(),4)}\n")
+      file.write(f"尖度: {round(train[purpose_value].kurt(),4)}")
     file.close()
 
   # 説明変数
