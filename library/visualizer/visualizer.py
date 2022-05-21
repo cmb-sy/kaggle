@@ -4,12 +4,12 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import os
+import shutil
 
 def visualizer(directory_path, train, test, purpose_value=None):
   directory_path = str(directory_path)
   if os.path.exists(directory_path):
-    print("同じフォルダが存在します。引数の名称を変更して下さい。")
-  else:
+    shutil.rmtree(directory_path)
     os.mkdir(directory_path)
 
   if purpose_value != None:
@@ -34,10 +34,10 @@ def visualizer(directory_path, train, test, purpose_value=None):
   pd.set_option('display.max_rows', N)
   pd.set_option('display.max_columns', D)
   file.write("< 説明変数の欠損割合 >\n")
-  file.write(str(train.isnull().sum().sort_values(ascending=False)))
+  file.write(str(train.isnull().sum()[train.isnull().sum()>0].sort_values(ascending=False)))
 
   # 欠損を含むカラムのデータ型を確認
-  col_list = train.isnull().sum().index.tolist() 
+  col_list = train.isnull().sum()[train.isnull().sum()>0].index.tolist() 
   file.write("\n\n< 説明変数の欠損データのデータ型 >\n")
   file.write(str(train[col_list].dtypes.sort_values() ))
   file.close()
