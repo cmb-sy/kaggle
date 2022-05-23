@@ -10,6 +10,9 @@ sys.path.append("../../../")
 from library.visualizer.visualizer import visualizer
 
 def prior_process(train, test, chg_s_list):
+  # 目的変数のSales Priceを除いたtrainとtestを行方向に合成（columを統一化）
+  alldata = pd.concat([train,test],axis=0).reset_index(drop=True)
+                      
   #  # 意味のない数字を文字列へ変換
   # for column in chg_s_list:
   #   train[column] = train[column].astype(str)
@@ -19,6 +22,7 @@ def prior_process(train, test, chg_s_list):
   nan_col_list = train.isnull().sum()[train.isnull().sum()>0].index.tolist() # 欠損を含むカラムをリスト化
   nan_float_cols = (train[nan_col_list].dtypes=='float64').index.tolist() #float64
   nan_obj_cols = (train[nan_col_list].dtypes=='object').index.tolist() #object
+
   # float64型で欠損している場合は0を代入
   for nan_float_col in nan_float_cols:
   #locで欠損部分の位置を特定し、0.0を代入(行名, 列名)
