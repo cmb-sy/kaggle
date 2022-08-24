@@ -59,6 +59,8 @@ def visualizer(directory_path, train, test, purpose_value=None, chg_log=False):
   file.write(str(train.head()))
   file.close()
 
+  print("successfully making dir file")
+
 
 if __name__ == '__main__':
   df_train = pd.read_csv("train.csv")
