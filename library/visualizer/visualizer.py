@@ -9,9 +9,14 @@ import numpy as np
 
 def visualizer(directory_path, train, test, purpose_value=None, chg_log=False):
   directory_path = str(directory_path)
+
+  # ディレクトリが存在するなら新規に作成
   if os.path.exists(directory_path):
+    # ディレクトリを中身ごと削除
     shutil.rmtree(directory_path)
+    # ディレクトリを作成 
     os.mkdir(directory_path)
+    
 
   if purpose_value != None:
     #目的変数のヒストグラ
