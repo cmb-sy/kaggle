@@ -25,8 +25,15 @@ def text_visualizer(directory_path, df_train, df_test):
   file.write("< 欠損値の確認 >\n")
   train_num = df_train.isnull().sum()[df_train.isnull().sum()>0]
   test_num = df_test.isnull().sum()[df_test.isnull().sum()>0]
-  file.write("train" + str(train_num))
-  file.write("test" + str(test_num))
+  file.write("train : " + str(train_num))
+  file.write('\n')
+  file.write("test : " + str(test_num))
+  file.write("\n\n")
+
+
+  file.write("< 説明変数の始めの5つのデータ >\n")
+  file.write("train : " + str(df_train.head()))
+  
   file.close()
 
 
