@@ -7,8 +7,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.gridspec import GridSpec
-import japanize_matplotlib
-
 
 def random_forest(train_data, test_data, purpose_variable, explanatory_variable):
   #modelを構築
@@ -107,16 +105,16 @@ if __name__ == '__main__':
   df_train = pd.read_csv("../train.csv")
   df_test =pd.read_csv('../test.csv')
 
-  # 加工
-  prior_process(df_train, df_test)
+  # # 加工
+  # prior_process(df_train, df_test)
 
-  # 目的変数
-  purpose_variable = ["Survived"]
-  # 説明変数
-  explanatory_variable = ["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked", "FamilySize"]
+  # # 目的変数
+  # purpose_variable = ["Survived"]
+  # # 説明変数
+  # explanatory_variable = ["Pclass", "Sex", "Age", "SibSp", "Parch", "Fare", "Embarked", "FamilySize"]
 
-  pridict = random_forest(df_train, df_test, purpose_variable, explanatory_variable)
+  # pridict = random_forest(df_train, df_test, purpose_variable, explanatory_variable)
 
-  change_submit_file("PassengerId", "Survived", df_test, pridict)
+  # change_submit_file("PassengerId", "Survived", df_test, pridict)
 
 

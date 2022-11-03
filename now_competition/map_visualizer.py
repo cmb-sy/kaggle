@@ -23,7 +23,7 @@ def map_visualizer(df_train, df_test):
     axes[i].hist(df_train[col])
     axes[i].set_title(col)    
   
-  plt.subplots_adjust(wspace=0.2, hspace=0.5) 
+  plt.subplots_adjust(wspace=0.2, hspace=0.5)
   plt.show()
     
 
