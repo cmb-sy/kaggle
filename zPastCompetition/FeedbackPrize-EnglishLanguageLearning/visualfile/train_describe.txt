@@ -1,0 +1,39 @@
+< 説明変数の概要 >
+<class 'pandas.core.frame.DataFrame'>
+(3911, 8)RangeIndex: 3911 entries, 0 to 3910
+(3911, 8)Data columns (total 8 columns):
+(3911, 8) #   Column       Non-Null Count  Dtype  
+(3911, 8)---  ------       --------------  -----  
+(3911, 8) 0   text_id      3911 non-null   object 
+(3911, 8) 1   full_text    3911 non-null   object 
+(3911, 8) 2   cohesion     3911 non-null   float64
+(3911, 8) 3   syntax       3911 non-null   float64
+(3911, 8) 4   vocabulary   3911 non-null   float64
+(3911, 8) 5   phraseology  3911 non-null   float64
+(3911, 8) 6   grammar      3911 non-null   float64
+(3911, 8) 7   conventions  3911 non-null   float64
+(3911, 8)dtypes: float64(6), object(2)
+(3911, 8)memory usage: 244.6+ KB
+(3911, 8)
+(3911, 8)
+
+< 説明変数の基本統計量 >
+シェイプ          cohesion       syntax   vocabulary  phraseology      grammar  conventions
+count  3911.000000  3911.000000  3911.000000  3911.000000  3911.000000  3911.000000
+mean      3.127077     3.028254     3.235745     3.116850     3.032856     3.081053
+std       0.662542     0.644399     0.583148     0.655997     0.699841     0.671450
+min       1.000000     1.000000     1.000000     1.000000     1.000000     1.000000
+25%       2.500000     2.500000     3.000000     2.500000     2.500000     2.500000
+50%       3.000000     3.000000     3.000000     3.000000     3.000000     3.000000
+75%       3.500000     3.500000     3.500000     3.500000     3.500000     3.500000
+max       5.000000     5.000000     5.000000     5.000000     5.000000     5.000000
+
+< 欠損値の確認 >
+train : Series([], dtype: int64)
+test : Series([], dtype: int64)
+
+< 説明変数の始めの5つのデータ >
+train :         text_id                                          full_text  cohesion  ...  phraseology  grammar  conventions
+0  0016926B079C  I think that students would benefit from learn...       3.5  ...          3.0      4.0          3.0
+
+[1 rows x 8 columns]
