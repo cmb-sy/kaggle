@@ -129,3 +129,5 @@ dmypy.json
 *.csv
 *.jsonl
 
+# nakashima関係
+miniconda3
