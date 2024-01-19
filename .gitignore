@@ -11,5 +11,8 @@
 *.csv
 *.jsonl
 
-# nakashima関係
+# other
+test.py
+
+# enviroment
 miniconda3
